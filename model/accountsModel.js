@@ -16,6 +16,7 @@ const accountsSchema = mongoose.Schema({
   balance: {
     type: Number,
     require: true,
+    //Validates if balance is lower than 0
     validate: (balance) => {
       if (balance < 0) {
         throw new Error(`Balance must be greater than 0`);
