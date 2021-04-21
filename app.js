@@ -25,6 +25,10 @@ app.use(express.json());
 
 app.use('/accounts', accountsRouter);
 
+app.get('/', (_, res) => {
+  res.send('test');
+})
+
 app.listen(3000, () => {
   console.log('my-bank-api is Working!');
 })
