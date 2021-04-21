@@ -29,9 +29,6 @@ app.use(express.json());
 
 app.use('/accounts', accountsRouter);
 
-app.get('/', (_, res) => {
-  res.send('test');
-})
 
 app.listen(process.env.PORT, () => {
   console.log('my-bank-api is Working!');
