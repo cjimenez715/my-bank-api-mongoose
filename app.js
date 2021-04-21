@@ -33,6 +33,11 @@ app.get('/', (_, res) => {
   res.send('Hi heroku !');
 })
 
+app.get('/say-hello/:message', (req, res) => {
+  const { message } = req.params;
+  res.send(`Hello ${message}!`);
+})
+
 app.listen(process.env.PORT, () => {
   console.log('my-bank-api is Working!');
 })
