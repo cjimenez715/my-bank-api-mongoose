@@ -1,12 +1,16 @@
 //IMPORTS
+
+
 import express from 'express';
 import mongoose from 'mongoose';
 import { accountsRouter } from './routes/accountsRouter.js';
 
+import dotenv from 'dotenv';
+dotenv.config();
 //Connection to mongoDB through mongoose
 (async () => {
   try {
-    await mongoose.connect('mongodb+srv://bootcampmongo:bootcampmongo@cluster0.0hgbl.mongodb.net/bank?retryWrites=true&w=majority', {
+    await mongoose.connect(process.env.MONGO_CONNECTION, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -29,6 +33,6 @@ app.get('/', (_, res) => {
   res.send('test');
 })
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
   console.log('my-bank-api is Working!');
 })
